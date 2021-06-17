@@ -1,7 +1,5 @@
 package model;
 
-import java.util.List;
-
 import entities.Rol;
 import utils.Conexion;
 
