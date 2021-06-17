@@ -31,9 +31,9 @@
 					  	<option value="<%=r.getId()%>"><%=r.getDescripcion()%></option>
 				<%}%>
 			</select>
-			<input type="text" name="usuario" placeholder="usuario" required/>
-			<input type="text" name="email" placeholder="email" required/>
-			<input type="text" name="pass" placeholder="pass" required/>
+			<input type="text" name="usuario" placeholder="Usuario" required/>
+			<input type="text" name="email" placeholder="Email" required/>
+			<input type="text" name="pass" placeholder="Contraseña" required/>
 			<input type="submit" name="registrar_usuario" class="next action-button" value="Rgistrar Usuario" />
 		</fieldset>
 	</form>
