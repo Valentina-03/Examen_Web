@@ -38,9 +38,10 @@ public class LoginController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String next = request.getParameter("next");
 		if(next.equals("iniciar_sesion")) {
-			
-			
+			String usuario = request.getParameter("usuario");
+			request.setAttribute("usuario", usuario);
 			RequestDispatcher rd = request.getRequestDispatcher("usuario.jsp");
+			rd.include(request, response);
 			rd.forward(request, response);
 			
 		}else {

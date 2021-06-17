@@ -13,6 +13,7 @@
 	<form id="msform" action="<%=request.getContextPath()%>/UserController" method="post">
 		<fieldset>
 			<h2 class="fs-title">Usuario</h2>
+			<input class="next action-button" type="hidden" id="usuario" name="usuario" value="">
 			<input class="next action-button" type="hidden" id="next" name="next" value="">
 			<input class="next action-button" type="submit" name="registrar_db" onclick="javascript:document.getElementById('next').value = 'registrar_db';" value="Registrar tipo">
 			<input class="next action-button" type="submit" name="registrar_token" onclick="javascript:document.getElementById('next').value = 'registrar_token';" value="Registrar Token">

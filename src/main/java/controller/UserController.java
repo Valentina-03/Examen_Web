@@ -23,6 +23,13 @@ public class UserController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String next = request.getParameter("next");
+		if(next.equals("registrar_token")) {
+			String usuario = String.valueOf(request.getAttribute("usuario"));
+			request.setAttribute("usuario", usuario);
+			RequestDispatcher rd = request.getRequestDispatcher(next + ".jsp");
+			rd.include(request, response);
+			rd.forward(request, response);
+		}
 		RequestDispatcher rd = request.getRequestDispatcher(next + ".jsp");
 		rd.forward(request, response);
 	}
