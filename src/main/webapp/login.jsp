@@ -12,7 +12,7 @@
 <body>
 	<form id="msform" action="<%=request.getContextPath()%>/LoginController" method="post">
 		<fieldset>
-			<h2 class="fs-title">Registrar Usuario</h2>
+			<h2 class="fs-title">Login</h2>
 			<input type="hidden" id="next" name="next" value="">
 			<input type="text" name="usuario" placeholder="Ingrese el usuario">
 			<input type="password" name ="pass" placeholder="Ingrese su clave">
