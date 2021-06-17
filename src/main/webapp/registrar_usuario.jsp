@@ -16,13 +16,13 @@
 </head>
 
 <body>
-	<form id="msform">
+	<form id="msform" action="<%=request.getContextPath()%>/UsuarioController" method="post">
 		<fieldset>
 			<h2 class="fs-title">Registrar Usuario</h2>			
 			<p>Ingrese sus datos</p>
 			
 			<select class="form-control" name="tipodocumento">
-				<option disabled="disabled" selected="selected">Tipo de Documento</option>
+				<option disabled="disabled" selected="selected">Seleccione el Rol</option>
 				<%
 					RolDao rDao = new RolDao();
 					List<Rol> roles = rDao.list();					

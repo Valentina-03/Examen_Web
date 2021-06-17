@@ -1,13 +1,16 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
+import entities.Rol;
+import entities.Usuario;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import entities.*;
 import model.*;
 
 @WebServlet("/UsuarioController")
@@ -30,9 +33,12 @@ public class UsuarioController extends HttpServlet {
 		RolDao rd = new RolDao();
 		UsuarioDao ud = new UsuarioDao();
 		
-//		Rol r = rd.find(Integer.parseInt(idrol));
-//		Usuario u = new Usuario(user, email, pass, r, 1);
-//		ud.insert(u);
+		Rol r = rd.find(Integer.parseInt(idrol));
+		Usuario u = new Usuario();
+		u.setRole(r);
+		u.setUsuario(user);
+		u.setPass(pass);
+		u.setEmail(email);		
+		ud.insert(u);
 	}
-
 }
