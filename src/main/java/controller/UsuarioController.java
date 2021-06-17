@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 import entities.Rol;
 import entities.Usuario;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -30,15 +31,10 @@ public class UsuarioController extends HttpServlet {
 		String email = request.getParameter("email");
 		String pass = request.getParameter("pass");
 		
-		PrintWriter out=new PrintWriter(response.getOutputStream());
-		out.println(idrol + " " + user);
-		out.close();
-
-		
-		RolDao rd = new RolDao();
+		RolDao rDao = new RolDao();
 		UsuarioDao ud = new UsuarioDao();
+		Rol r = rDao.find(Integer.parseInt(idrol));
 		
-		Rol r = rd.find(Integer.parseInt(idrol));
 		Usuario u = new Usuario();
 		u.setRole(r);
 		u.setUsuario(user);
@@ -47,5 +43,8 @@ public class UsuarioController extends HttpServlet {
 		u.setState(1);
 		
 		ud.insert(u);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+		rd.forward(request, response);
 	}
 }
