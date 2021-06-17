@@ -12,7 +12,8 @@
 <body>
 	<form id="msform" action="<%=request.getContextPath()%>/RegistrardbController" method="post">
 		<fieldset>
-			<h2 class="fs-title">Usuario</h2>
+			<h2 class="fs-title">Registrar Base de datos</h2>
+			<input type="text" name="id" placeholder="Id" required>
 			<input type="text" name="descripcion" placeholder="Descripcion" required>
 			<input type="text" name="driver" placeholder="Driver" required>
 			<input type="text" name="adicional" placeholder="Adicional" required>

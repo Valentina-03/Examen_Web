@@ -1,11 +1,16 @@
 package controller;
 
 import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import entities.Typedb;
+import model.TypedbDao;
+
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
 
 /**
  * Servlet implementation class RegistrardbController
@@ -34,8 +39,17 @@ public class RegistrardbController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String id = request.getParameter("id");
+		String driver = request.getParameter("driver");
+		String descripcion = request.getParameter("descripcion");
+		String aditional = request.getParameter("adicional");
+		
+		TypedbDao tpDao = new TypedbDao();
+		Typedb tp = new Typedb(id, descripcion, driver, aditional);
+		tpDao.insert(tp);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("usuario.jsp");
+		rd.forward(request, response);		
 	}
 
 }
