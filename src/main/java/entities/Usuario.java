@@ -10,7 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-
 @Entity
 @Table(name = "usuario")
 @NamedQuery(name="Usuario.findAll", query="SELECT u FROM Usuario u")
@@ -30,32 +29,24 @@ public class Usuario implements Serializable {
 	@Column(name = "pass")
 	private String pass;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "role")
+	private Rol role;
+	
 	@Column(name = "state")
 	private Integer state;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "rol")
-	private Rol rol;	
-	
+
 	public Usuario() {
 		
-	}	
+	}
+	
 	public Usuario(Integer id, String usuario, String email, String pass, Rol rol, Integer state) {
 		super();
 		this.id = id;
 		this.usuario = usuario;
 		this.email = email;
 		this.pass = pass;
-		this.rol = rol;
-		this.state = state;
-	}
-	
-	public Usuario(String usuario, String email, String pass, Rol rol, Integer state) {
-		super();
-		this.usuario = usuario;
-		this.email = email;
-		this.pass = pass;
-		this.rol = rol;
+		this.role = rol;
 		this.state = state;
 	}
 
@@ -91,12 +82,14 @@ public class Usuario implements Serializable {
 		this.pass = pass;
 	}
 
-	public Rol getRol() {
-		return rol;
+
+
+	public Rol getRole() {
+		return role;
 	}
 
-	public void setRol(Rol rol) {
-		this.rol = rol;
+	public void setRole(Rol role) {
+		this.role = role;
 	}
 
 	public Integer getState() {
@@ -111,4 +104,9 @@ public class Usuario implements Serializable {
 		return serialVersionUID;
 	}
 
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + ", usuario=" + usuario + ", email=" + email + ", pass=" + pass + ", rol=" + role
+				+ ", state=" + state + "]";
+	}
 }

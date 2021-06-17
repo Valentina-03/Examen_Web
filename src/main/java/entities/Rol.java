@@ -27,14 +27,13 @@ public class Rol implements Serializable {
 	@Column(name = "descripcion")
 	private String descripcion;
 	
-	@OneToMany(mappedBy = "rol", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "role")
 	private List<Usuario> usuarios;
 
 	public Rol() {
 		
 	}
 	public Rol(Integer id, String descripcion) {
-		super();
 		this.id = id;
 		this.descripcion = descripcion;
 	}

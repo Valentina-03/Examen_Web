@@ -30,9 +30,9 @@ public class UsuarioController extends HttpServlet {
 		RolDao rd = new RolDao();
 		UsuarioDao ud = new UsuarioDao();
 		
-		Rol r = rd.find(Integer.parseInt(idrol));
-		Usuario u = new Usuario(user, email, pass, r, 1);
-		ud.insert(u);
+//		Rol r = rd.find(Integer.parseInt(idrol));
+//		Usuario u = new Usuario(user, email, pass, r, 1);
+//		ud.insert(u);
 	}
 
 }
