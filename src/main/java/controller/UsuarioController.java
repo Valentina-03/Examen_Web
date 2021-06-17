@@ -30,6 +30,11 @@ public class UsuarioController extends HttpServlet {
 		String email = request.getParameter("email");
 		String pass = request.getParameter("pass");
 		
+		PrintWriter out=new PrintWriter(response.getOutputStream());
+		out.println(idrol + " " + user);
+		out.close();
+
+		
 		RolDao rd = new RolDao();
 		UsuarioDao ud = new UsuarioDao();
 		
@@ -38,7 +43,9 @@ public class UsuarioController extends HttpServlet {
 		u.setRole(r);
 		u.setUsuario(user);
 		u.setPass(pass);
-		u.setEmail(email);		
+		u.setEmail(email);
+		u.setState(1);
+		
 		ud.insert(u);
 	}
 }
